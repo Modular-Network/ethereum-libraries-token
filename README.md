@@ -11,13 +11,11 @@ A library [provided by Modular](https://modular.network "Modular's Website") to 
 
 
 - [Library Address](#library-address)
-  - [v1.2.1](#v121)
-  - [v1.0.0](#v100)
 - [License and Warranty](#license-and-warranty)
-- [How to install](#how-to-install)
-  - [Truffle Installation](#truffle-installation)
-    - [Manual install:](#manual-install)
-    - [Testing the library in truffle](#testing-the-library-in-truffle)
+- [Installation and Usage](#installation-and-usage)
+  - [How to install](#how-to-install)
+  - [How to link](#how-to-link)
+  - [Testing](#testing)
   - [solc Installation](#solc-installation)
     - [With standard JSON input](#with-standard-json-input)
     - [solc without standard JSON input](#solc-without-standard-json-input)
@@ -28,6 +26,7 @@ A library [provided by Modular](https://modular.network "Modular's Website") to 
 - [Basic Usage](#basic-usage)
   - [Usage Example](#usage-example)
 - [Change Log](#change-log)
+  - [v1.3.0](#v130)
   - [v1.2.0](#v120)
   - [v1.1.0](#v110)
 - [Functions](#functions)
@@ -71,8 +70,8 @@ A library [provided by Modular](https://modular.network "Modular's Website") to 
 
 ## Library Address
 
-**Main Ethereum Network**: 0x5462311485a381621D6B768c28157c2a70cBB55e   
-**Rinkeby Test Network**: 0xE563CD95728fEaA94f96a5D97AA9f1ad5A16c1a7   
+**Main Ethereum Network**: 0xA699Dd7D57917a57FA9d0E323Ab4b542a0Ff873a   
+**Rinkeby Test Network**: 0xd8688508661deaf4fb69bde3e100e89ee1b02056   
 
 ## License and Warranty
 
@@ -160,10 +159,10 @@ For direction and instructions on how the Solidity command line compiler works [
     ...
     "libraries": {
       "TokenLib.sol": {
-        "BasicMathLib" : "0x01671229Bbf99b30203F9807C5A577a7B8C358Fc"
+        "BasicMathLib" : "0xD08660d7298CDc78169D6f8C99C3141a9D59A3d3"
       },
       "YourTokenContract.sol": {
-        "TokenLib": "0x6d271cbF16be9E9D037DDA5F0dc507777bA27a1c"
+        "TokenLib": "0xA699Dd7D57917a57FA9d0E323Ab4b542a0Ff873a"
       }
     }
   }
@@ -175,11 +174,11 @@ For direction and instructions on how the Solidity command line compiler works [
 
 When creating unlinked binary, the compiler currently leaves special substrings in the compiled bytecode in the form of '__LibraryName______' which leaves a 20 byte space for the library's address. In order to include the deployed library in your bytecode add the following flag to your command:
 
-`--libraries "TokenLib:0x6d271cbF16be9E9D037DDA5F0dc507777bA27a1c"`
+`--libraries "TokenLib:0xA699Dd7D57917a57FA9d0E323Ab4b542a0Ff873a"`
 
 Additionally, if you have multiple libraries, you can create a file with one library string per line and include this library as follows:
 
-`"TokenLib:0x6d271cbF16be9E9D037DDA5F0dc507777bA27a1c"`
+`"TokenLib:0xA699Dd7D57917a57FA9d0E323Ab4b542a0Ff873a"`
 
 then add the following flag to your command:
 
@@ -187,7 +186,7 @@ then add the following flag to your command:
 
 Finally, if you have an unlinked binary already stored with the '__LibraryName______' placeholder, you can run the compiler with the --link flag and also include the following flag:
 
-`--libraries "TokenLib:0x6d271cbF16be9E9D037DDA5F0dc507777bA27a1c"`
+`--libraries "TokenLib:0xA699Dd7D57917a57FA9d0E323Ab4b542a0Ff873a"`
 
 #### solc documentation
 
@@ -228,10 +227,10 @@ var input = {
     ...
     "libraries": {
       "TokenLib": {
-        "BasicMathLib": "0x01671229Bbf99b30203F9807C5A577a7B8C358Fc"
+        "BasicMathLib": "0xD08660d7298CDc78169D6f8C99C3141a9D59A3d3"
       },
       "YourContract.sol": {
-        "TokenLib": "0x6d271cbF16be9E9D037DDA5F0dc507777bA27a1c"
+        "TokenLib": "0xA699Dd7D57917a57FA9d0E323Ab4b542a0Ff873a"
       }
     }
     ...
@@ -248,7 +247,7 @@ var output = JSON.parse(solc.compileStandardWrapper(JSON.stringify(input)));
 Solc-js also provides a linking method if you have compiled binary code already with the placeholder. To link this library the call would be:
 
  ```js
- bytecode = solc.linkBytecode(bytecode, { 'TokenLib': '0x6d271cbF16be9E9D037DDA5F0dc507777bA27a1c' });
+ bytecode = solc.linkBytecode(bytecode, { 'TokenLib': '0xA699Dd7D57917a57FA9d0E323Ab4b542a0Ff873a' });
  ```
 
 #### Solc-js documentation

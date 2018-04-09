@@ -4,7 +4,7 @@ pragma solidity 0.4.21;
  * @title TokenLib
  * @author Modular Inc, https://modular.network
  *
- * version 1.3.0
+ * version 1.3.2
  * Copyright (c) 2017 Modular, Inc
  * The MIT License (MIT)
  * https://github.com/Modular-Network/ethereum-libraries/blob/master/LICENSE
