@@ -1,6 +1,6 @@
 {
   "name": "ethereum-libraries-token",
-  "version": "1.3.2",
+  "version": "1.3.3",
   "description": "Token library used by token contracts",
   "keywords": [
     "ethereum",
